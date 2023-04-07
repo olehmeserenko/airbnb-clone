@@ -5,17 +5,20 @@ import { Avatar } from '@components/Avatar'
 import { useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
+import { useClickOutside } from '@/hooks/useClickOutside'
 import { MenuItem } from '../MenuItem'
 
 export const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const ref = useClickOutside(() => setIsOpen(false))
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev)
   }, [])
 
   return (
-    <div className={'relative'}>
+    <div ref={ref} className={'relative'}>
       <div className={'flex flex-row items-center gap-3'}>
         <div
           onClick={() => {}}
