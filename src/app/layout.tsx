@@ -2,12 +2,12 @@ import { ReactNode } from 'react'
 
 import { Nunito } from 'next/font/google'
 
-import { LoginModal } from '@components/Modals/LoginModal'
-import { RegisterModal } from '@components/Modals/RegisterModal'
-import { Navbar } from '@components/Navbar'
-
 import { getCurrentUser } from '@/actions/getCurrentUser'
 import { ToasterProvider } from '@/providers/ToasterProvider'
+import { LoginModal } from '@components/Modals/LoginModal'
+import { RegisterModal } from '@components/Modals/RegisterModal'
+import { RentModal } from '@components/Modals/RentModal'
+import { Navbar } from '@components/Navbar'
 
 import '../styles/globals.css'
 
@@ -32,6 +32,7 @@ export default async function RootLayout({
         <ToasterProvider />
         <LoginModal />
         <RegisterModal />
+        <RentModal />
         <Navbar currentUser={currentUser} />
         {children}
       </body>
