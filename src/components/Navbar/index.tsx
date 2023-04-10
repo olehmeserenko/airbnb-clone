@@ -1,12 +1,15 @@
 'use client'
 
+import { FC } from 'react'
+
 import { Container } from '@components/Container'
 
-import { SafeUser } from '@/types'
-import { FC } from 'react'
+import { Categories } from './Categories'
 import { Logo } from './Logo'
 import { Search } from './Search'
 import { UserMenu } from './UserMenu'
+
+import { SafeUser } from '@/types'
 
 interface NavbarProps {
   currentUser?: SafeUser | null
@@ -27,5 +30,6 @@ export const Navbar: FC<NavbarProps> = ({ currentUser }) => (
         </div>
       </Container>
     </div>
+    <Categories />
   </div>
 )
