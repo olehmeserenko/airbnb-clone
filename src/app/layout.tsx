@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { Nunito } from 'next/font/google'
 
 import { getCurrentUser } from '@/actions/getCurrentUser'
+import { SearchModal } from '@/components/Modals/SearchModal'
 import { ToasterProvider } from '@/providers/ToasterProvider'
 import { ClientOnly } from '@components/ClientOnly'
 import { LoginModal } from '@components/Modals/LoginModal'
@@ -35,6 +36,7 @@ export default async function RootLayout({
           <LoginModal />
           <RegisterModal />
           <RentModal />
+          <SearchModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className={'pb-20 pt-28'}>{children}</div>
