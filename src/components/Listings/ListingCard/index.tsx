@@ -2,7 +2,6 @@
 
 import { FC, MouseEvent, useCallback, useMemo } from 'react'
 
-import { Reservation } from '@prisma/client'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -10,11 +9,11 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/Button'
 import HeartButton from '@/components/HeartButton'
 import { useCountries } from '@/hooks/useCountries'
-import { SafeListing, SafeUser } from '@/types'
+import { SafeListing, SafeReservation, SafeUser } from '@/types'
 
 interface ListingCardProps {
   data: SafeListing
-  reservation?: Reservation
+  reservation?: SafeReservation
   onAction?: (id: string) => void
   disabled?: boolean
   actionLabel?: string

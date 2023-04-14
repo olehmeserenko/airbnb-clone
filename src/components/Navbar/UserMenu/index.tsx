@@ -2,6 +2,8 @@
 
 import { Avatar } from '@components/Avatar'
 
+import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { FC, useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
@@ -9,7 +11,6 @@ import { useClickOutside } from '@hooks/useClickOutside'
 import { useLoginModal } from '@hooks/useLoginModal'
 import { useRegisterModal } from '@hooks/useRegisterModal'
 import { useRentModal } from '@hooks/useRentModal'
-import { signOut } from 'next-auth/react'
 
 import { SafeUser } from '@/types'
 
@@ -20,6 +21,7 @@ interface UserMenuProps {
 }
 
 export const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
 
   const registerModal = useRegisterModal()
@@ -70,7 +72,10 @@ export const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
           <div className={'flex cursor-pointer flex-col '}>
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label={'My Trips'} />
+                <MenuItem
+                  onClick={() => router.push('/trips')}
+                  label={'My Trips'}
+                />
                 <MenuItem onClick={() => {}} label={'My favorites'} />
                 <MenuItem onClick={() => {}} label={'My reservations'} />
                 <MenuItem onClick={() => {}} label={'My properties'} />
